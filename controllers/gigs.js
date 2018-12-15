@@ -6,8 +6,9 @@ const db = require('../models');
 router.get('/', (req, res) => 
 	db.gigs.findAll()
 	.then(gigs => {
-		console.log(gigs)
-		res.sendStatus(200);
+		res.render('gigs', {
+			gigs
+		});
 	})
 	.catch(err => console.log(err)));
 
